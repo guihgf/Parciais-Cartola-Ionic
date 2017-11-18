@@ -1,0 +1,69 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.content-ios {
+    background-color: #f4f4f7;
+}
+.content-md {
+    background-color: #f4f4f7;
+}
+h2 {
+	color: rgba($color: #000, $alpha: .87);
+}
+p {
+	color: rgba($color: #000, $alpha: .54);
+}
+h3 {
+	color: rgba($color: #000, $alpha: .54);
+}
+
+.custom-card {
+	margin-left: 0px;
+  	margin-right: 0px;
+	width:100%;
+}
+
+.item-md, .item-ios {
+	h2 {
+	  color: rgba($color: #000, $alpha: .87);
+	}
+	p {
+	  color: rgba($color: #000, $alpha: .54);
+	}
+
+}
+
+.item-md, .item-ios, .item-wp {
+	h2,h3,h3, p {
+	  white-space: normal;
+	}
+}
+
+// iOS only
+.toolbar-ios {
+  ion-title {
+      padding: 0 90px 0 1px;
+  }
+  .searchbar-ios .searchbar-input {
+      background: rgba($color: #000, $alpha: 0.12);
+  }
+}
+
+.toast-danger {
+  > div{
+       background-color:#db3232!important;
+   }
+}

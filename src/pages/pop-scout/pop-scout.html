@@ -1,0 +1,227 @@
+<!--
+  Generated template for the PopScoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="background-pop">
+
+  <ion-avatar>
+    <img [src]="atleta.escudo" class="escudo">
+  </ion-avatar>
+  <h3 text-center>{{atleta.apelido}}</h3>
+  <p text-center [style.color]="atleta.pontos_num<0 ? 'red' : 'green'">{{atleta.pontos_num | number:'1.2'}}</p>
+  <ion-grid>
+  <p *ngIf="!atleta.scout && atleta.posicao_id!=6"> Scout não computado para este jogador.</p>
+  <p *ngIf="atleta.posicao_id==6">Pontuação do técnico é medida pela média da pontuação de sua equipe.</p>
+  <ion-row *ngIf="atleta.scout" popover-ios-min-width="250px">
+    <ion-col col-5>
+      <b>Scout</b>
+    </ion-col>
+    <ion-col col-3>
+      <b>Qtd.</b>
+    </ion-col>
+    <ion-col col-4>
+      <b>Pontos</b>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.RB">
+      <ion-col col-5>
+        Roubada de bola
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.RB}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.RB * 1.7 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.FC">
+      <ion-col col-5>
+        Falta cometida
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.FC}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.FC * -0.5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.GC">
+      <ion-col col-5>
+        Gol contra
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.GC}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.GC * -6 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.CA">
+      <ion-col col-5>
+        Cartão amarelo
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.CA}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.CA * -2 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.CV">
+      <ion-col col-5>
+        Cartão vermelho
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.CV}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.CV * -5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.FS">
+      <ion-col col-5>
+        Falta sofrida
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.FS}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.FS * 0.5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.PE">
+      <ion-col col-5>
+        Passe errado
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.PE}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.PE * -0.3 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.FT">
+      <ion-col col-5>
+        Finalização na trave
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.FT}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.FT * 3.5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.FD">
+      <ion-col col-5>
+        Finalização defendida
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.FD}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.FD * 1 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.FF">
+      <ion-col col-5>
+        Finalização para fora
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.FF}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.FF * 0.7 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.G">
+      <ion-col col-5>
+        Gol
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.G}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.G * 8 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.I">
+      <ion-col col-5>
+        Impedimento
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.I}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.I * -0.5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.PP">
+      <ion-col col-5>
+        Penalti perdido
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.PP}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.PP * -3.5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.A">
+      <ion-col col-5>
+        Assistência
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.A}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.A * 5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.SG">
+      <ion-col col-5>
+        Jogo sem sofre gol
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.SG}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.SG * 5 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.DD">
+      <ion-col col-5>
+        Defesa difícil
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.DD}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.DD * 3 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.DP">
+      <ion-col col-5>
+        Defesa de penalti
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.DP}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.DP * 7 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="atleta.scout?.GS">
+      <ion-col col-5>
+        Gol sofrido
+      </ion-col>
+      <ion-col col-3>
+        {{atleta.scout.GS}}
+      </ion-col>
+      <ion-col col-4>
+        {{atleta.scout.GS * -2 | number:'1.2'}}
+      </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>

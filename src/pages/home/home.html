@@ -1,0 +1,30 @@
+<ion-header >
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Parciais Cartola</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)" [pullMin]=90> <!--90 dpi pra poder começar a funcionar-->
+    <ion-refresher-content
+     pullingIcon="arrow-dropdown"
+     pullingText="Puxe para baixo para recarregar..."
+     refreshingSpinner="circles"
+     refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngIf="mercadoStatus">
+    <ion-card-content>
+       <h2 text-center>Rodada: {{mercadoStatus.rodada_atual}}</h2><br/>
+       <h3 text-center>Mercado esta: {{mercadoStatus.status_mercado==1?"Aberto":"Fechado"}}</h3><br/>
+       <h3 text-center>Jogadores: {{mercadoStatus.times_escalados | formatarNumero}}</h3><br/>
+       <h3 text-center>Fechamento em: {{mercadoStatus.fechamento}}</h3><br/>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+</ion-content>
